@@ -1,6 +1,7 @@
 import streamlit as st
 import time
 import numpy as np
+
 progress_bar = st.sidebar.progress(0)
 status_text = st.sidebar.empty()
 last_rows = np.random.randn(1, 1)
@@ -14,4 +15,4 @@ for i in range(1, 101):
     time.sleep(0.05)
     progress_bar.empty()
 # Streamlit widgets automatically run the script from top to bottom. Since # this button is not connected to any other logic, it just causes a plain # rerun.
-st.button("Re-run")
+#st.button("Re-run")s
