@@ -7,6 +7,7 @@ import requests
 import seaborn as sns
 from pandas.plotting import register_matplotlib_converters
 import matplotlib.pyplot as plt
+import matplotlib.ticker as ticker
 
 st.title("Орон сууцны 1 метр талбайн дундаж үнэ, Улаанбаатар хотын 6 дүүргээр")
 
@@ -56,6 +57,11 @@ def plot_data(data):
         ax.set_ylabel('Метр квадратын үнэ (сая төгрөгөөр)')
         ax.legend(title='Дүүрэг', bbox_to_anchor=(1.05, 1), loc='upper left')
         
+        # Improve y-axis readability
+        ax.yaxis.set_major_locator(ticker.MaxNLocator(nbins=10))  # Adjust the number of y-axis labels
+        #ax.yaxis.set_major_formatter(ticker.ScalarFormatter())   # Use scalar formatter for readability
+        #ax.yaxis.set_tick_params(rotation=45)  
+
     plt.xlabel('Он сар')
     plt.xticks(rotation=45)
     plt.tight_layout()
